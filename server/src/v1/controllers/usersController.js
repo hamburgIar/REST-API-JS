@@ -6,6 +6,21 @@ const getAllUsers = (req, res) => {
     })
 }
 
+const createUser = (req, res) => {
+    const userInfo = req.body
+
+    if (userInfo) {
+        usersService.createUser(
+            userInfo.firstName,
+            userInfo.lastName,
+            userInfo.age
+        )
+
+        res.send({ status: 200 })
+    }
+}
+
 export {
-    getAllUsers
+    getAllUsers,
+    createUser
 }
